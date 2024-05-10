@@ -15,3 +15,15 @@ class News(models.Model):
     def __str__(self):
         return self.title
 
+class Management(models.Model):
+    name= models.CharField(max_length=100)
+    number = models.IntegerField()
+    
+    def __str__(self):
+        return self.title
+    
+
+class Structura(models.Model):
+    title = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
+

@@ -15,4 +15,23 @@ class AddFilterBackend(BaseFilterBackend):
         return fields
 
     def filter_queryset(self, request, queryset, view):
-        return  queryset
+        return  
+    
+
+
+
+class NewsFilterBackend(BaseFilterBackend):
+    def get_schema_fields(self, view):
+        fields = [
+            coreapi.Field(
+                name='keyword',
+                location='query',
+                required=False,
+                type='str',
+                description='Search keyword'
+            )
+        ]
+        return fields
+
+    def filter_queryset(self, request, queryset, view):
+        return  queryset    
