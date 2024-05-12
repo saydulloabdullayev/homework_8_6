@@ -1,5 +1,5 @@
-
-from rest_framework.permissions import IsAuthenticated 
+from rest_framework.parsers import MultiPartParser
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.generics import (
     ListAPIView,
     RetrieveAPIView,
@@ -9,7 +9,7 @@ from rest_framework.generics import (
 )
 
 from django_filters import rest_framework as filters
-from .models import Add, News, Management, Structura
+from .models import Add, News, Management, Structura, Electronic_Fund, Contact, Building
 from .serializers import (
     AddDetailSerializer, 
     AddSerializer,
@@ -18,7 +18,10 @@ from .serializers import (
     ManagementSerializer, 
     ManagementDetailSerializer,
     StructuraSerializer,
-    StructuraDetailSerializer
+    StructuraDetailSerializer,
+    ElectronicFundSerializer,
+    BuildingSerializer,
+    ContactSerializer,
 )
 
 
@@ -166,8 +169,19 @@ class StructuraUpdateAPIView(RetrieveUpdateAPIView):
 
 
 
+class ElectronicFundViewSet(ListAPIView):
+    queryset = Electronic_Fund.objects.all()
+    serializer_class = ElectronicFundSerializer
+    permission_classes = [MultiPartParser]
 
 
+class ContactViewSet(ListAPIView):
+    queryset = Contact.objects.all()
+    serializer_class = ContactSerializer
+    permission_classes = [MultiPartParser]
 
 
-
+class BuildingViewSet(ListAPIView):
+    queryset = Building.objects.all()
+    serializer_class = BuildingSerializer
+    permission_classes = [MultiPartParser]

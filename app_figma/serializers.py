@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Add, News, Management, Structura
+from .models import Add, News, Management, Structura, Contact, Building, Electronic_Fund
 
 class AddSerializer(serializers.ModelSerializer):
     add_detail_url = serializers.SerializerMethodField(read_only=True, source = 'get_add_detail_url')
@@ -69,3 +69,23 @@ class StructuraDetailSerializer(serializers.ModelSerializer):
         model = Structura
         fields = '__all__'
 
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = '__all__'
+
+
+
+class BuildingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Building
+        fields = '__all__'
+
+
+
+
+class ElectronicFundSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Electronic_Fund
+        fields = '__all__'

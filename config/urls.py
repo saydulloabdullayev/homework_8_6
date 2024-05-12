@@ -38,6 +38,9 @@ urlpatterns = [
    path('api/v1/news/', include('app_figma.urls')),
    path('api/v1/management/', include('app_figma.urls')),
    path('api/v1/structura/', include('app_figma.urls')),
+   path('api/v1/fund/', include('app_figma.urls')),
+   path('api/v1/contact/', include('app_figma.urls')),
+   path('api/v1/building/', include('app_figma.urls')),
    #SWAGGER
    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
